@@ -1,11 +1,5 @@
-# dgen.kv
+# dgen2.kv
 
-# Import necessary Kivy modules
-#:import Label kivy.uix.label
-#:import BoxLayout kivy.uix.boxlayout
-#:import Button kivy.uix.button
-
-# Define the layout for the random number generator
 BoxLayout:
     orientation: 'vertical'
     padding: 20
@@ -14,12 +8,25 @@ BoxLayout:
     
     # Center the children both horizontally and vertically
     pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-    
+
+    # Mini button for About
+    Button:
+        size_hint_x: None
+        size_hint_y: None
+        width: 0  # Adjust the width as needed
+        height: 0  # Adjust the height as needed
+        text: 'About'  # Add text to the button
+        color: 0, 0, 0, 0  # Set text color to match the background
+        background_normal: ''
+        background_color: 0/255, 0/255, 0/255, 1  # Bright green color
+        #background_color: 0/255, 255/255, 0/255, 1  # Bright green color
+        on_release: app.show_about_popup()
+
     # Label to display the random number
     Label:
         id: random_number_label
         text: '000'
-        font_name: 'RobotoMono-Regular.ttf'  # Or any other digital-style font
+        font_name: 'RobotoMono-Regular.ttf'  # Or any digital-style font
         font_size: '60sp'
         size_hint: None, None
         size: self.texture_size  # Adjusts the size of the label to match its content
