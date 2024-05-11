@@ -1,4 +1,4 @@
-# dgen2.py
+# dgen.py
 
 import sys
 import random
