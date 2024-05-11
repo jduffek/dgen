@@ -11,7 +11,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 
 # Define the layout for the random number generator
-class duffgenApp(App):
+class dgenApp(App):
     def __init__(self, num_digits=2, **kwargs):
         super().__init__(**kwargs)
         self.num_digits = num_digits  # Set the number of digits
@@ -68,5 +68,5 @@ if __name__ == '__main__':
     Config.set('graphics', 'height', '110')
 
     # Run the Kivy application with parsed arguments
-    duffgenApp(num_digits=num_digits).run()
+    dgenApp(num_digits=num_digits).run()
 
