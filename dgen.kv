@@ -32,10 +32,4 @@ BoxLayout:
         size: self.texture_size  # Adjusts the size of the label to match its content
         color: 0/255, 255/255, 0/255, 1  # Bright green color
         halign: 'center'  # Center the text horizontally
-
-    # Button to generate a new random number
-    Button:
-        text: 'dgen'
-        size_hint_y: None
-        height: '15dp'  # Adjust the height of the button
-        on_release: app.generate_random_number()
+        on_touch_down: app.generate_random_number()

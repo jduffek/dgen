@@ -9,6 +9,7 @@ from kivy.config import Config
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.clock import Clock
 
 # Define the layout for the random number generator
 class dgenApp(App):
@@ -19,9 +20,10 @@ class dgenApp(App):
     def build(self):
         # Load the root widget defined in the .kv file
         root = Builder.load_file('dgen.kv')
+        Clock.schedule_once(lambda dt: self.generate_and_display_random_number())  # Generate and display a random number on startup
         return root
 
-    def on_start(self):
+    def generate_and_display_random_number(self):
         # Generate a random number with the specified number of digits
         min_num = 10 ** (self.num_digits - 1)
         max_num = (10 ** self.num_digits) - 1
@@ -39,12 +41,7 @@ class dgenApp(App):
 
     def show_about_popup(self):
         about_content = BoxLayout(orientation='vertical', padding=20)
-        # Add some space above the label
-        about_content.add_widget(Label())
-        # about_content.add_widget(Label(text='dgen - Version 2.0\n\nCreated by: Your Name'))
         about_content.add_widget(Label(text='jduffek@gmail.com'))
-        # Add space between the label and the button to center the button
-        about_content.add_widget(Label())
         about_content.add_widget(Button(text='Close', size_hint=(None, None), size=(50, 50), on_release=self.dismiss_about_popup))
     
         self.about_popup = Popup(title='About dgen', content=about_content, size_hint=(None, None), size=(110, 200))
