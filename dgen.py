@@ -18,7 +18,7 @@ class dgenApp(App):
 
     def build(self):
         # Load the root widget defined in the .kv file
-        root = Builder.load_file('dgen2.kv')
+        root = Builder.load_file('dgen.kv')
         return root
 
     def on_start(self):
